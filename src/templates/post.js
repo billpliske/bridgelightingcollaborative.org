@@ -190,7 +190,7 @@ const Title = styled.h1`
   font-family: 'Exo', sans-serif;
   font-size: 40px;
   font-style: italic;
-  font-weight: 100;
+  font-weight: 200;
 `
 
 const Meta = styled.span`

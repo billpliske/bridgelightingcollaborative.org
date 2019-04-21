@@ -2,43 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 
-@font-face {
-    font-family: "Exo";
-    font-style: normal;
-    font-weight: 100;
-    src: url(/fonts/Exo-ExtraLight.woff) format("woff");
-}
-@font-face {
-    font-family: "Exo";
-    font-style: italic;
-    font-weight: 100;
-    src: url(/fonts/Exo-ExtraLightItalic.woff) format("woff");
-}
-@font-face {
-    font-family: "Exo";
-    font-style: normal;
-    font-weight: 200;
-    src: url(/fonts/Exo-Regular.woff) format("woff");
-}
-@font-face {
-    font-family: "Exo";
-    font-style: italic;
-    font-weight: 200;
-    src: url(/fonts/Exo-Italic.woff) format("woff");
-}
-@font-face {
-    font-family: "Exo";
-    font-style: normal;
-    font-weight: 300;
-    src: url(/fonts/Exo-Black.woff) format("woff");
-}
-@font-face {
-    font-family: "Exo";
-    font-style: italic;
-    font-weight: 300;
-    src: url(/fonts/Exo-BlackItalic.woff) format("woff");
-}
-
 * {
     margin: 0;
     padding: 0;
