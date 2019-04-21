@@ -71,12 +71,12 @@ const Headline = styled.h1`
   left: 50%;
   margin-right: -50%;
   margin: 0;
+  min-width: 300px;
   position: absolute;
+  text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  min-width: 300px;
-  text-align: center;
 
   @media (min-width: 700px) {
     background: palevioletred;
