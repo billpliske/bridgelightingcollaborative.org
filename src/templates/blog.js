@@ -14,8 +14,8 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <Background
-          src="https://blog.pghblc.org/wp-content/uploads/2019/04/I-35W-Bridge-Minneapolis.jpg"
-          alt="logo"
+          src="https://res.cloudinary.com/billpliske/image/upload/v1555871516/pghblc.org/I-35-bridge-minneapolis.jpg"
+          alt="Minneapolis bridge"
         />
         <Headline>Coming soon!</Headline>
         {/* <PostList posts={posts} title="Latest posts" />
