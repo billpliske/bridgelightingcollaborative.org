@@ -179,7 +179,7 @@ export const pageQuery = graphql`
 const Content = styled.div`
   position: relative;
   figure img {
-    height: auto;
+    /* height: auto; */
     /* max-width: 200px; */
   }
 `
