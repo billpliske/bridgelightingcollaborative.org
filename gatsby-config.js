@@ -5,6 +5,18 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: `Expo`,
+    //         variants: [`200`, `200i`, `400`, `400i`, `900`, `900i`],
+    //       },
+    //     ],
+    //   },
+    // },
+
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -21,21 +33,7 @@ module.exports = {
         verboseOutput: false,
       },
     },
-    (module.exports = {
-      plugins: [
-        {
-          resolve: `gatsby-plugin-prefetch-google-fonts`,
-          options: {
-            fonts: [
-              {
-                family: `Expo`,
-                variants: [`200`, `200i`, `400`, `400i`, `900`, `900i`],
-              },
-            ],
-          },
-        },
-      ],
-    }),
+
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
