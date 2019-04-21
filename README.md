@@ -1,2 +1,2 @@
 # pghblc.org
-Pittsburgh Bridge Lighting Coalition wesite
+Pittsburgh Bridge Lighting Coalition website
