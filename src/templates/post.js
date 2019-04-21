@@ -178,28 +178,29 @@ export const pageQuery = graphql`
 
 const Content = styled.div`
   position: relative;
-  figure img {
-    /* height: auto; */
-    /* max-width: 200px; */
-  }
+  /* figure img {
+		height: auto;
+		max-width: 200px;
+	}
+	*/
 `
 
 const Title = styled.h1`
-  font-size: 40px;
   color: var(--greenish-teal);
   font-family: 'Exo', sans-serif;
-  font-weight: 100;
+  font-size: 40px;
   font-style: italic;
+  font-weight: 100;
 `
 
 const Meta = styled.span`
-  padding-left: 10px;
   font-family: sans-serif;
+  padding-left: 10px;
 `
 
 const Icon = styled.svg`
-  position: relative;
-  padding-right: 2px;
-  top: 2px;
   fill: gray;
+  padding-right: 2px;
+  position: relative;
+  top: 2px;
 `
