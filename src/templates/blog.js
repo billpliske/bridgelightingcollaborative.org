@@ -23,7 +23,7 @@ export default class IndexPage extends React.Component {
           alt="Minneapolis bridge"
         />
 
-        <Headline>Coming soon!</Headline>
+        <Headline>Coming soon.</Headline>
         {/* <PostList posts={posts} title="Latest posts" />
         <Pagination pageContext={pageContext} pathPrefix="/" /> */}
       </Layout>
@@ -84,7 +84,7 @@ const Headline = styled.h1`
   transform: translate(-50%, -50%);
   z-index: 2;
 
-  @media (min-width: 700px) {
-    /* background: palevioletred; */
+  @media (max-width: 320px) {
+    font-size: 32px;
   }
 `
