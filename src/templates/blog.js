@@ -14,6 +14,13 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <Background
+          srcset="
+          tiny.jpg      320w,
+          small.jpg     512w,
+          medium.jpg    640w,
+          large.jpg    1024w,
+          huge.jpg     1280w,
+          enormous.jpg 2048w"
           src="https://res.cloudinary.com/billpliske/image/upload/v1555871516/pghblc.org/I-35-bridge-minneapolis.jpg"
           alt="Minneapolis bridge"
         />

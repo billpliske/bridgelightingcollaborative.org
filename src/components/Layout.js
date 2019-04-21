@@ -8,6 +8,7 @@ const TemplateWrapper = ({ children }) => (
   <div>
     <GlobalStyles />
     <Helmet>
+      <html lang="en" />
       <title>Home | Gatsby + WordPress</title>
       <meta
         name="description"
