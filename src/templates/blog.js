@@ -67,7 +67,7 @@ const Headline = styled.h1`
   flex: 1;
   font-family: 'Exo', sans-serif;
   font-size: 40px;
-  font-weight: 300;
+  font-weight: 900;
   left: 50%;
   margin-right: -50%;
   margin: 0;
