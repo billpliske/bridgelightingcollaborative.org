@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Exo:200,200i,400,400i,900,900i');
 
 * {
     margin: 0;

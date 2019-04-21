@@ -5,12 +5,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Exo: 200, 200i, 400, 400i, 900, 900i`],
-      },
-    },
 
     {
       resolve: 'gatsby-source-wordpress',
