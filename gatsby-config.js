@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + WordPress Starter',
+    title: 'Welcome to pghblc.org',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
