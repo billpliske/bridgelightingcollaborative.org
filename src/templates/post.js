@@ -180,7 +180,7 @@ const Content = styled.div`
   position: relative;
   figure img {
     height: auto;
-    max-width: 200px;
+    /* max-width: 200px; */
   }
 `
 
