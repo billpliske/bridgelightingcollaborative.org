@@ -79,6 +79,6 @@ const Headline = styled.h1`
   z-index: 2;
 
   @media (min-width: 700px) {
-    background: palevioletred;
+    /* background: palevioletred; */
   }
 `
