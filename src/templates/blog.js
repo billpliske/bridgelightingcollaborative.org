@@ -138,6 +138,11 @@ const Headline = styled.h1`
     line-height: 47px;
     top: 39px;
   }
+  @media (min-width: 1500px) {
+    font-size: 51px;
+    line-height: 47px;
+    top: 52px;
+  }
 `
 const Description = styled.h3`
   color: orange;
@@ -170,6 +175,10 @@ const Description = styled.h3`
   @media (min-width: 1024px) {
     font-size: 23px;
     top: 52px;
+  }
+  @media (min-width: 1500px) {
+    font-size: 26px;
+    top: 77px;
   }
 `
 
