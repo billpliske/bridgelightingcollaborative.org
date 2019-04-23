@@ -1,70 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { Spring } from 'react-spring'
 import styled from 'styled-components'
 // import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 // import PostList from '../components/PostList'
 // import Pagination from '../components/Pagination'
 
-class IndexPage extends Component {
+export default class IndexPage extends React.Component {
   render() {
     // const { data, pageContext } = this.props
     // const { edges: posts } = data.allWordpressPost
 
     return (
       <Layout>
-        <Background>
-          <Spring
-            from={{ opacity: 0 }}
-            to={{ opacity: 1 }}
-            config={{ delay: 1100, duration: 1000 }}
-          >
-            {props => (
-              <div style={props}>
-                <Slide>
-                  <ImageBlock>
-                    <Image
-                      sizes="100vh"
-                      srcSet="
-                https://res.cloudinary.com/billpliske/image/upload/f_auto,q_70,w_512/v1555871516/pghblc.org/london-bridge.jpg  512w,
-                https://res.cloudinary.com/billpliske/image/upload/f_auto,q_70,w_1024/v1555871516/pghblc.org/london-bridge.jpg    640w"
-                      src="
-                https://res.cloudinary.com/billpliske/image/upload/v1555871516/pghblc.org/london-bridge.jpg"
-                      alt="London Tower Bridge"
-                    />
-                  </ImageBlock>
-                  <TextBlock>
-                    <Headline>
-                      In 1994, the City of 
-                      {' '}
-                      <Bold>London</Bold>
-                      {' '}
-did xxxxxxx
-                      involving their iconic bridge.
-                    </Headline>
-                  </TextBlock>
-                </Slide>
-              </div>
-            )}
-          </Spring>
+        <Background
+          sizes="100vh"
+          srcSet="
+          https://res.cloudinary.com/codaworx/image/upload/f_auto,q_70,w_512/v1400510474/project/polli-andrea-image1.jpg  512w,
+          https://res.cloudinary.com/codaworx/image/upload/f_auto,q_70,w_1024/v1400510474/project/polli-andrea-image1.jpg    640w"
+          src="
+          https://res.cloudinary.com/codaworx/image/upload/v1400510474/project/polli-andrea-image1.jpg"
+          alt="Minneapolis bridge"
+        />
 
-          {/* <Slide>
-            <TextBlock>
-              <Headline>Coming soon, London.</Headline>
-            </TextBlock>
-            <ImageBlock
-              sizes="100vh"
-              srcSet="
-              https://res.cloudinary.com/billpliske/image/upload/f_auto,q_70,w_512/v1555871516/pghblc.org/london-bridge.jpg  512w,
-              https://res.cloudinary.com/billpliske/image/upload/f_auto,q_70,w_1024/v1555871516/pghblc.org/london-bridge.jpg    640w"
-              src="
-              https://res.cloudinary.com/billpliske/image/upload/v1555871516/pghblc.org/london-bridge.jpg"
-              alt="London Tower Bridge"
-            />
-          </Slide> */}
-        </Background>
-
+        <Headline>Coming soon.</Headline>
         {/* <PostList posts={posts} title="Latest posts" />
         <Pagination pageContext={pageContext} pathPrefix="/" /> */}
       </Layout>
@@ -100,89 +59,31 @@ IndexPage.propTypes = {
 //   }
 // `
 
-/* const Background = styled.img`
-	left: 50%;
-	min-height: 100%;
-	min-width: 100%;
-	position: fixed;
-	transform: translate(-50%, 0);
-	z-index: 1;
-`
-*/
-
-const Background = styled.div`
-  background-color: #000;
-  height: 100vh;
-`
-
-const Slide = styled.div`
-  display: grid;
-  grid-gap: 0;
-  grid-template-rows: 1fr 1fr;
-  height: 100vh;
-`
-
-const ImageBlock = styled.div`
-  position: relative;
-`
-
-const Image = styled.img`
+const Background = styled.img`
   left: 50%;
-  max-height: 50%;
-  min-width: 100%;
-  object-fit: cover;
+  min-height: 100%;
+  /* min-width: 100%; */
   position: fixed;
   transform: translate(-50%, 0);
-
-  @media (min-width: 400px) {
-    font-size: 32px;
-  }
-
-  @media (min-width: 500px) {
-    font-size: 32px;
-  }
-
-  @media (min-width: 600px) {
-    font-size: 32px;
-  }
-`
-
-const TextBlock = styled.div`
-  position: relative;
+  z-index: 1;
 `
 
 const Headline = styled.h1`
   color: white;
   flex: 1;
   font-family: 'Exo', sans-serif;
-  font-size: 22px;
+  font-size: 40px;
   font-weight: 900;
   left: 50%;
   margin-right: -50%;
   margin: 0;
   min-width: 300px;
-  padding: 25px;
   position: absolute;
   text-align: center;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-
-  @media (min-width: 375px) {
-    font-size: 23px;
-  }
-
-  @media (min-width: 420px) {
-    font-size: 25px;
-  }
-
-  @media (min-width: 500px) {
-    font-size: 27px;
+  @media (max-width: 320px) {
+    font-size: 32px;
   }
 `
-
-const Bold = styled.span`
-  color: gold;
-`
-
-export default IndexPage

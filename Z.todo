@@ -4,7 +4,7 @@ TODOS
 
 ☐ Fade each slide grouping away, one after another, until Pittsburgh is left.
 ☐ https://github.com/billpliske/nashrector.com/blob/master/src/components/ScreenOne.js
-
+☐ https://res.cloudinary.com/codaworx/image/upload//v1400510474/project/polli-andrea-image1.jpg
 
 
 ------------------------
@@ -16,6 +16,7 @@ REFERENCE
 ☐ https://github.com/GatsbyCentral/gatsby-starter-wordpress
 ☐ hook: https://adam-mould.co.uk/building-deploying-gatsby-wordpress-api-netlify/
 ☐ vscode-styled-sort
+☐ https://www.react-spring.io/docs/props/keyframes
 
 
 ------------------------
