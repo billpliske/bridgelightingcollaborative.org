@@ -1,6 +1,6 @@
 {
   "name": "pghblc.org",
-  "description": "Pittsburgh Bridge Lighting Coalition",
+  "description": "Pittsburgh Bridge Lighting Collaborative",
   "version": "0.1.0",
   "author": "Bill Pliske",
   "dependencies": {
@@ -23,6 +23,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
+    "react-spring": "^8.0.19",
     "styled-components": "^4.2.0",
     "uuid": "^3.2.1"
   },

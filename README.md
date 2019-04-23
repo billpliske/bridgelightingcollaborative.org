@@ -1,3 +1,3 @@
 # pghblc.org
-Pittsburgh Bridge Lighting Coalition website.
+Pittsburgh Bridge Lighting Collaborative website.
 

@@ -12,7 +12,7 @@ const TemplateWrapper = ({ children }) => (
       <title>Home | Gatsby + WordPress</title>
       <meta
         name="description"
-        content="Home of Pittsburgh Bridge Lighting Coalition"
+        content="Home of Pittsburgh Bridge Lighting Collaborative"
       />
     </Helmet>
     {/* <Navbar /> */}

@@ -1,9 +1,26 @@
+------------------------
+TODOS
+------------------------
+
+☐ Fade each slide grouping away, one after another, until Pittsburgh is left.
+☐ https://github.com/billpliske/nashrector.com/blob/master/src/components/ScreenOne.js
+
+
+
+------------------------
+REFERENCE
+------------------------
 ☐ http://localhost:8000/___graphql?
 ☐ https://https://blog.pghblc.org/wp-json/wp/v2/wp-json/wp/v2/posts
 ☐ https://https://blog.pghblc.org/wp-json/wp/v2/wp-json/wp/v2/pages
 ☐ https://github.com/GatsbyCentral/gatsby-starter-wordpress
 ☐ hook: https://adam-mould.co.uk/building-deploying-gatsby-wordpress-api-netlify/
 ☐ vscode-styled-sort
+
+
+------------------------
+OTHER STUFF
+------------------------
 
 About srcSet
 ☐ https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
