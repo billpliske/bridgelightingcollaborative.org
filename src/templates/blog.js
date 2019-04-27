@@ -56,21 +56,21 @@ IndexPage.propTypes = {
   }),
 }
 
-// export const pageQuery = graphql`
-//   query IndexQuery($limit: Int!, $skip: Int!) {
-//     allWordpressPost(
-//       sort: { fields: date, order: DESC }
-//       limit: $limit
-//       skip: $skip
-//     ) {
-//       edges {
-//         node {
-//           ...PostListFields
-//         }
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query IndexQuery($limit: Int!, $skip: Int!) {
+    allWordpressPost(
+      sort: { fields: date, order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          ...PostListFields
+        }
+      }
+    }
+  }
+`
 
 const Wrapper = styled.div`
   display: grid;
