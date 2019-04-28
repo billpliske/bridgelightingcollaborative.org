@@ -34,8 +34,8 @@ export default class IndexPage extends React.Component {
                   </Link>
                 )}
 
-                <p>
-                  {post.title}
+                <Excerpt>
+                  <Headline>{post.title}</Headline>
                   <span> &bull; </span>
                   <small>
                     {post.date}
@@ -46,15 +46,18 @@ export default class IndexPage extends React.Component {
                       {post.author.name}
                     </Link>
                   </small>
-                </p>
-                <div>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt.replace(/<p class="link-more.*/, ''),
-                    }}
-                  />
-                  <Link to={`/blog/${post.slug}`}>Keep Reading →</Link>
-                </div>
+                  <div>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: post.excerpt.replace(
+                          /<p class="link-more.*/,
+                          ''
+                        ),
+                      }}
+                    />
+                    <Link to={`/blog/${post.slug}`}>Keep Reading →</Link>
+                  </div>
+                </Excerpt>
               </HomeListItem>
             ))}
           </PostsList>
@@ -97,24 +100,24 @@ export const pageQuery = graphql`
 `
 
 const HomeWrapper = styled.section`
-  margin: 20px;
+  margin: 25px;
 `
 
 const PostsList = styled.ul`
   list-style: none;
   margin: 0px auto;
-  padding: calc(30px) 0px calc(10px);
 `
 
 const HomeListItem = styled.li`
   margin: 20px 0;
   border: 1px solid transparent;
   border-radius: 10px;
-  margin: calc(20px * 2) 0 calc(20px * 3);
-  padding: 10px;
   position: relative;
   transition: all 0.5s;
   background: transparent;
+  &:first-of-type {
+    margin-top: 0;
+  }
 `
 const ImageOuterWrapper = styled.div`
   border-radius: 10px;
@@ -134,4 +137,16 @@ const ImageOuterWrapper = styled.div`
 
 const Image = styled(Img)`
   transition: opacity 0.5s ease 0.5s;
+`
+
+const Excerpt = styled.div`
+  margin: 8px;
+`
+
+const Headline = styled.h1`
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 27px;
+  padding: 10px 20px 10px 0;
 `
