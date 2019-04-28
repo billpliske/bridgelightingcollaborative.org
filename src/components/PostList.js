@@ -35,19 +35,21 @@ export default class IndexPage extends React.Component {
                 )}
 
                 <Excerpt>
-                  <Headline>{post.title}</Headline>
-                  <span> &bull; </span>
-                  <small>
-                    {post.date}
-                    {' '}
-- posted by
-                    {' '}
-                    <Link to={`/author/${post.author.slug}`}>
-                      {post.author.name}
-                    </Link>
-                  </small>
-                  <div>
-                    <div
+                  <Link to={`/blog/${post.slug}`}>
+                    <Headline>{post.title}</Headline>
+                  </Link>
+                  <Details>
+                    <small>
+                      <i className="material-icons">calendar_today</i>
+                      {post.date}
+                      <i className="material-icons mi-bigger">account_circle</i>
+                      <Author to={`/author/${post.author.slug}`}>
+                        {post.author.name}
+                      </Author>
+                    </small>
+                  </Details>
+                  <Text>
+                    <p
                       dangerouslySetInnerHTML={{
                         __html: post.excerpt.replace(
                           /<p class="link-more.*/,
@@ -56,7 +58,7 @@ export default class IndexPage extends React.Component {
                       }}
                     />
                     <Link to={`/blog/${post.slug}`}>Keep Reading →</Link>
-                  </div>
+                  </Text>
                 </Excerpt>
               </HomeListItem>
             ))}
@@ -94,7 +96,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    date(formatString: "MMMM DD, YYYY")
+    date(formatString: "MM/DD/YYYY")
     slug
   }
 `
@@ -141,6 +143,12 @@ const Image = styled(Img)`
 
 const Excerpt = styled.div`
   margin: 8px;
+  a {
+    text-decoration: none;
+  }
+  p {
+    line-height: 23px;
+  }
 `
 
 const Headline = styled.h1`
@@ -149,4 +157,27 @@ const Headline = styled.h1`
   text-transform: uppercase;
   line-height: 27px;
   padding: 10px 20px 10px 0;
+  color: #000;
+  letter-spacing: -1px;
+`
+
+const Details = styled.div`
+  padding: 5px 0 15px 0;
+  i {
+    padding-left: 10px;
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+`
+
+const Text = styled.div`
+  a {
+    color: orangered;
+  }
+`
+
+const Author = styled(Link)`
+  color: #000;
+  text-decoration: underline !important;
 `

@@ -2,12 +2,29 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Exo:200,200i,400,400i,900,900i');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Exo', sans-serif;
+}
+
+.material-icons {
+    font-size: 16px;
+    color: orangered;
+    padding-right: 2px;
+    position: relative;
+    top: 2px;
+}
+
+.mi-bigger {
+    font-size: 18px;
+    color: orangered;
+    padding-right: 2px;
+    position: relative;
+    top: 4px;
 }
 
 :root {
