@@ -1,6 +1,6 @@
 {
-  "name": "pghblc.org",
-  "description": "Pittsburgh Bridge Lighting Collaborative",
+  "name": "bridgelightingcollaborative.org",
+  "description": "The Bridge Lighting Collaborative",
   "version": "0.1.0",
   "author": "Bill Pliske",
   "dependencies": {
