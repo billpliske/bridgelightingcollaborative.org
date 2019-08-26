@@ -1,15 +1,20 @@
-const _ = require('lodash')
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
-const { paginate } = require('gatsby-awesome-pagination')
+const path = require(`path`)
+const slash = require(`slash`)
 
-const getOnlyPublished = edges =>
-  _.filter(edges, ({ node }) => node.status === 'publish')
-
-exports.createPages = ({ actions, graphql }) => {
+// Implement the Gatsby API “createPages”. This is
+// called after the Gatsby bootstrap is finished so you have
+// access to any information necessary to programmatically
+// create pages.
+// Will create pages for WordPress pages (route : /{slug})
+// Will create pages for WordPress posts (route : /post/{slug})
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  return graphql(`
+  // The “graphql” function allows us to run arbitrary
+  // queries against the local Gatsby GraphQL schema. Think of
+  // it like the site has a built-in database constructed
+  // from the fetched data that you can run queries against.
+  const result = await graphql(`
     {
       allWordpressPage {
         edges {
@@ -17,206 +22,68 @@ exports.createPages = ({ actions, graphql }) => {
             id
             slug
             status
+            template
           }
         }
+      }
+      allWordpressPost {
+        edges {
+            node {
+              id
+              title
+              slug
+              path
+              featured_media {
+                id
+                source_url
+                alt_text
+              }
+            }
+          }
       }
     }
   `)
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
 
-      const pageTemplate = path.resolve(`./src/templates/page.js`)
-
-      // Only publish pages with a `status === 'publish'` in production. This
-      // excludes drafts, future posts, etc. They will appear in development,
-      // but not in a production build.
-
-      const allPages = result.data.allWordpressPage.edges
-      const pages =
-        process.env.NODE_ENV === 'production'
-          ? getOnlyPublished(allPages)
-          : allPages
-
-      // Call `createPage()` once per WordPress page
-      _.each(pages, ({ node: page }) => {
-        createPage({
-          path: `/${page.slug}/`,
-          component: pageTemplate,
-          context: {
-            id: page.id,
-          },
-        })
-      })
-    })
-    .then(() =>
-      graphql(`
-        {
-          allWordpressPost {
-            edges {
-              node {
-                id
-                slug
-                status
-              }
-            }
-          }
-        }
-      `)
-    )
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
-
-      const postTemplate = path.resolve(`./src/templates/post.js`)
-      const blogTemplate = path.resolve(`./src/templates/blog.js`)
-
-      // In production builds, filter for only published posts.
-      const allPosts = result.data.allWordpressPost.edges
-      const posts =
-        process.env.NODE_ENV === 'production'
-          ? getOnlyPublished(allPosts)
-          : allPosts
-
-      // Iterate over the array of posts
-      _.each(posts, ({ node: post }) => {
-        // Create the Gatsby page for this WordPress post
-        createPage({
-          path: `/blog/${post.slug}/`,
-          component: postTemplate,
-          context: {
-            id: post.id,
-          },
-        })
-      })
-
-      // Create a paginated blog, e.g., /, /page/2, /page/3
-      paginate({
-        createPage,
-        items: posts,
-        itemsPerPage: 10,
-        pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `/` : `/page`),
-        component: blogTemplate,
-      })
-    })
-    .then(() =>
-      graphql(`
-        {
-          allWordpressCategory(filter: { count: { gt: 0 } }) {
-            edges {
-              node {
-                id
-                name
-                slug
-              }
-            }
-          }
-        }
-      `)
-    )
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
-
-      const categoriesTemplate = path.resolve(`./src/templates/category.js`)
-
-      // Create a Gatsby page for each WordPress Category
-      _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
-        createPage({
-          path: `/categories/${cat.slug}/`,
-          component: categoriesTemplate,
-          context: {
-            name: cat.name,
-            slug: cat.slug,
-          },
-        })
-      })
-    })
-    .then(() =>
-      graphql(`
-        {
-          allWordpressTag(filter: { count: { gt: 0 } }) {
-            edges {
-              node {
-                id
-                name
-                slug
-              }
-            }
-          }
-        }
-      `)
-    )
-
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
-
-      const tagsTemplate = path.resolve(`./src/templates/tag.js`)
-
-      // Create a Gatsby page for each WordPress tag
-      _.each(result.data.allWordpressTag.edges, ({ node: tag }) => {
-        createPage({
-          path: `/tags/${tag.slug}/`,
-          component: tagsTemplate,
-          context: {
-            name: tag.name,
-            slug: tag.slug,
-          },
-        })
-      })
-    })
-    .then(() =>
-      graphql(`
-        {
-          allWordpressWpUsers {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
-          }
-        }
-      `)
-    )
-    .then(result => {
-      if (result.errors) {
-        result.errors.forEach(e => console.error(e.toString()))
-        return Promise.reject(result.errors)
-      }
-
-      const authorTemplate = path.resolve(`./src/templates/author.js`)
-
-      _.each(result.data.allWordpressWpUsers.edges, ({ node: author }) => {
-        createPage({
-          path: `/author/${author.slug}`,
-          component: authorTemplate,
-          context: {
-            id: author.id,
-          },
-        })
-      })
-    })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+  // Check for any errors
+  if (result.errors) {
+    throw new Error(result.errors)
   }
+
+  // Access query results via object destructuring
+  const { allWordpressPage, allWordpressPost } = result.data
+
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
+  // We want to create a detailed page for each
+  // page node. We'll just use the WordPress Slug for the slug.
+  // The Page ID is prefixed with 'PAGE_'
+  allWordpressPage.edges.forEach(edge => {
+    // Gatsby uses Redux to manage its internal state.
+    // Plugins and sites can use functions like "createPage"
+    // to interact with Gatsby.
+    createPage({
+      // Each page is required to have a `path` as well
+      // as a template component. The `context` is
+      // optional but is often necessary so the template
+      // can query data specific to each page.
+      path: `/${edge.node.slug}/`,
+      component: slash(pageTemplate),
+      context: {
+        id: edge.node.id,
+      },
+    })
+  })
+
+  const postTemplate = path.resolve(`./src/templates/post.js`)
+  // We want to create a detailed page for each
+  // post node. We'll just use the WordPress Slug for the slug.
+  // The Post ID is prefixed with 'POST_'
+  allWordpressPost.edges.forEach(edge => {
+    createPage({
+      path: `/${edge.node.slug}/`,
+      component: slash(postTemplate),
+      context: {
+        id: edge.node.id,
+      },
+    })
+  })
 }

@@ -1,55 +1,46 @@
 {
-  "name": "bridgelightingcollaborative.org",
-  "description": "The Bridge Lighting Collaborative",
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Bill Pliske",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.0.0",
-    "gatsby-awesome-pagination": "^0.3.3",
-    "gatsby-plugin-lodash": "^3.0.1",
-    "gatsby-plugin-netlify": "^2.0.0",
-    "gatsby-plugin-purgecss": "^3.1.0",
-    "gatsby-plugin-react-helmet": "^3.0.0",
-    "gatsby-plugin-sharp": "^2.0.5",
-    "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-remark-images": "^3.0.10",
-    "gatsby-source-filesystem": "^2.0.1",
-    "gatsby-source-wordpress": "^3.0.1",
-    "gatsby-transformer-remark": "^2.1.1",
-    "gatsby-transformer-sharp": "^2.1.1",
-    "lodash": "^4.17.5",
-    "parcel-bundler": "^1.9.4",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.4.1",
-    "react-helmet": "^5.2.0",
-    "react-spring": "^8.0.19",
-    "styled-components": "^4.2.0",
-    "uuid": "^3.2.1"
+    "gatsby": "^2.13.73",
+    "gatsby-image": "^2.2.10",
+    "gatsby-plugin-manifest": "^2.2.6",
+    "gatsby-plugin-offline": "^2.2.7",
+    "gatsby-plugin-react-helmet": "^3.1.4",
+    "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-source-filesystem": "^2.1.11",
+    "gatsby-source-wordpress": "^3.1.25",
+    "gatsby-transformer-sharp": "^2.2.7",
+    "imagemin-pngquant": "^8.0.0",
+    "pngquant-bin": "^5.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "clean": "rimraf .cache public",
-    "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
-  "devDependencies": {
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.6.0",
-    "prettier": "^1.17.0",
-    "rimraf": "^2.6.3"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
-  "prettier": {
-    "trailingComma": "es5",
-    "semi": false,
-    "singleQuote": true
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
